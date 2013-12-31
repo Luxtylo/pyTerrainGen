@@ -1,0 +1,12 @@
+Plan of the structure and functions of pyterraingen
+
+rng:
+    Generates pseudorandom numbers between 1 and 100
+randAnalyser(randNum, (lo, hi)):
+    Checks randNum and 1, 0 or -1 depending on its value compared to lo and hi
+main:
+    Gets the length and max height of terrain from user
+loop(length, maxheight):
+    Generates pseudorandom height array and returns it
+printTerrain(heightArray):
+    Formats heightArray and prints it
