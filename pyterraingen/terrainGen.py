@@ -22,19 +22,31 @@ import random
 
 
 if __name__ == "__main__":
-    print(random.randrange(0, 100))
-
     def getParameters():
-        pass
+        maxHeight = int(input("\nType the maximum height and press enter\n"))
+        length = int(input("\nType the length of terrain you want\n"))
+        return (maxHeight, length)
     
-    def loop(length, maxHeight):
-        pass
+    def loop(maxHeight, length):
+        heightArray = list()
 
-    def rng():
-        pass
+        for i in range(length):
+            randNum = rng()
+            lowHigh = randAnalyser(randNum, 30, 70)
+            print(lowHigh)
 
-    def randAnalyser(randNum, lo, hi):
-        pass
+        def rng(lo, hi):
+            num = random.randrange(0,100)
+
+            if num <= lo:
+                return -1
+            elif num >= hi:
+                return 1
+            else
+                return 0
 
     def printTerrain(heightArray):
         pass
+
+    (maxHeight, length) = getParameters()
+    loop(maxHeight, length)
