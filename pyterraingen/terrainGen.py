@@ -28,25 +28,43 @@ if __name__ == "__main__":
         return (maxHeight, length)
     
     def loop(maxHeight, length):
-        heightArray = list()
+        heightList = list()
+        heightList.append(maxHeight/2)
 
         for i in range(length):
-            randNum = rng()
-            lowHigh = randAnalyser(randNum, 30, 70)
-            print(lowHigh)
+            upDown = rng(30, 70)
+            heightList.append(heightList[-1] + upDown)
 
-        def rng(lo, hi):
-            num = random.randrange(0,100)
+        return heightList
 
-            if num <= lo:
-                return -1
-            elif num >= hi:
-                return 1
-            else
-                return 0
+    def rng(lo, hi):
+        num = random.randrange(0,100)
 
-    def printTerrain(heightArray):
-        pass
+        if num <= lo:
+            return -1
+        elif num >= hi:
+            return 1
+        else:
+            return 0
+
+    def printTerrain(maxHeight, length, heightList):
+        groundChar = "X"
+        skyChar = "_"
+        
+        displayList = list()
+        
+        index = 0
+        for height in heightList:
+            column = skyChar * int((maxHeight - height)) + groundChar * int(height)
+            displayList.append(column)
+            index += 1
+
+        displayList = zip(*displayList[::-1])
+
+        for row in displayList:
+            printRow = "".join(row)
+            print(printRow)
 
     (maxHeight, length) = getParameters()
-    loop(maxHeight, length)
+    heights = loop(maxHeight, length)
+    printTerrain(maxHeight, length, heights)
